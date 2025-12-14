@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Malek Berrezouga - Consultant en Cybersécurité</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f5f7fa;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-radius: 0;
+        }
+        
+        /* Header moderne */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 50px 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.35em;
+            font-weight: 300;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+        }
+        
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            color: #3b82f6;
+        }
+        
+        /* Main content avec sidebar */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+        
+        /* Sidebar gauche */
+        .sidebar {
+            background: #f8fafc;
+            padding: 40px 30px;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+        
+        .sidebar-title {
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        /* Compétences avec barres */
+        .skill-group {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            font-size: 0.85em;
+            color: #475569;
+            padding: 4px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .skill-list li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 1.2em;
+        }
+        
+        /* Certifications cards */
+        .cert-card {
+            background: white;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        
+        .cert-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+        }
+        
+        .cert-title {
+            font-size: 0.88em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 3px;
+        }
+        
+        .cert-meta {
+            font-size: 0.78em;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cert-year {
+            background: #3b82f6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        /* Langues avec niveau */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .language-item:last-child {
+            border-bottom: none;
+        }
+        
+        .language-name {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #334155;
+        }
+        
+        .language-level {
+            font-size: 0.8em;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* Formation */
+        .education-card {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .education-degree {
+            font-size: 0.88em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        
+        .education-school {
+            font-size: 0.8em;
+            color: #64748b;
+        }
+        
+        .education-year {
+            font-size: 0.78em;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+        
+        /* Content principal */
+        .content {
+            padding: 40px 45px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+        }
+        
+        /* Profil résumé */
+        .profile-summary {
+            font-size: 0.98em;
+            line-height: 1.8;
+            color: #334155;
+            text-align: justify;
+        }
+        
+        .profile-summary strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+        
+        /* Expérience */
+        .job {
+            margin-bottom: 35px;
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid #e2e8f0;
+        }
+        
+        .job::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        .job-header {
+            margin-bottom: 12px;
+        }
+        
+        .job-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        
+        .job-company {
+            font-size: 1em;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 3px;
+        }
+        
+        .job-period {
+            font-size: 0.88em;
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .job-description {
+            margin-top: 12px;
+            list-style: none;
+        }
+        
+        .job-description li {
+            font-size: 0.92em;
+            color: #475569;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .job-description li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+        
+        .job-description strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        /* Années d'expérience badge */
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: #0f172a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .sidebar {
+                background: #f8fafc !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .header {
+                padding: 30px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Malek Berrezouga</h1>
+                <div class="tagline">Spécialiste en Cybersécurité</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Berrezouga.malek@outlook.com
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        438-455-5846
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Montréal, QC
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                        </svg>
+                        Français • Anglais • Arabe
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Compétences Techniques -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Compétences Techniques</h3>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">🔐 Sécurité des Données</div>
+                        <ul class="skill-list">
+                            <li>Data Loss Prevention (DLP)</li>
+                            <li>Microsoft Purview</li>
+                            <li>Classification & Chiffrement</li>
+                            <li>IAM & Gestion des Accès</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">☁️ Sécurité Cloud</div>
+                        <ul class="skill-list">
+                            <li>Azure Security</li>
+                            <li>AWS Security</li>
+                            <li>Microsoft 365 Security</li>
+                            <li>Defender XDR</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">🛡️ Sécurité Opérationnelle</div>
+                        <ul class="skill-list">
+                            <li>SOC & SIEM</li>
+                            <li>Threat Detection</li>
+                            <li>Incident Response</li>
+                            <li>Vulnerability Assessment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">⚙️ DevSecOps</div>
+                        <ul class="skill-list">
+                            <li>CI/CD Security</li>
+                            <li>SAST / DAST</li>
+                            <li>SonarQube</li>
+                            <li>Secure SDLC</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">📋 Conformité</div>
+                        <ul class="skill-list">
+                            <li>ISO 27001</li>
+                            <li>PCI-DSS</li>
+                            <li>OWASP Top 10</li>
+                            <li>Security Audits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-category">💻 Technologies</div>
+                        <ul class="skill-list">
+                            <li>Java Spring Ecosystem</li>
+                            <li>Microservices</li>
+                            <li>Python / Bash</li>
+                            <li>API Security</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Certifications</h3>
+                    
+                    <div class="cert-card">
+                        <div class="cert-title">Google Cybersecurity Professional</div>
+                        <div class="cert-meta">
+                            <span>Google</span>
+                            <span class="cert-year">2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-title">Cisco Ethical Hacker</div>
+                        <div class="cert-meta">
+                            <span>Cisco</span>
+                            <span class="cert-year">2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-title">Swagger Hub API Owner</div>
+                        <div class="cert-meta">
+                            <span>SwaggerHub</span>
+                            <span class="cert-year">2022</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-title">PSPO (Scrum)</div>
+                        <div class="cert-meta">
+                            <span>Scrum.org</span>
+                            <span class="cert-year">2021</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-title">Java Spring OWASP</div>
+                        <div class="cert-meta">
+                            <span>-</span>
+                            <span class="cert-year">2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formation -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Formation</h3>
+                    
+                    <div class="education-card">
+                        <div class="education-degree">Certificat en Développement Logiciel</div>
+                        <div class="education-school">UQAM, Montréal</div>
+                        <div class="education-year">2015</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <div class="education-degree">Licence en Sciences Informatiques</div>
+                        <div class="education-school">ISET Charguia, Tunisie</div>
+                        <div class="education-year">2012</div>
+                    </div>
+                </div>
+                
+                <!-- Langues -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Langues</h3>
+                    
+                    <div class="language-item">
+                        <span class="language-name">Français</span>
+                        <span class="language-level">Avancé</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Anglais</span>
+                        <span class="language-level">Avancé</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Arabe</span>
+                        <span class="language-level">Avancé</span>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Content Principal -->
+            <main class="content">
+                <!-- Profil -->
+                <section class="section">
+                    <h2 class="section-title">Profil Professionnel</h2>
+                    <p class="profile-summary">
+                        Consultant en cybersécurité avec plus de 9 ans d'expérience, spécialisé dans la sécurisation d'applications critiques et la protection des données sensibles. Mon parcours a débuté en développement, ce qui me permet de comprendre naturellement comment pensent les attaquants et où se cachent les vulnérabilités. Aujourd'hui, je me concentre sur la protection des systèmes dans des environnements hautement réglementés, en appliquant une approche DevSecOps qui intègre la sécurité sans ralentir les équipes. Récemment certifié Google Cybersecurity Professional et Cisco Ethical Hacker (2025), je continue d'approfondir mes connaissances sur les technologies Microsoft de protection des données (Purview, DLP, Defender XDR).
+                    </p>
+                    <div class="experience-badge">9+ Années d'Expérience</div>
+                </section>
+                
+                <!-- Expérience Professionnelle -->
+                <section class="section">
+                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    
+                    <!-- Poste 1 -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Développement Professionnel en Cybersécurité</div>
+                            <div class="job-company">Formation Indépendante & Certifications</div>
+                            <div class="job-period">Janvier 2025 - Présent</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Obtention des certifications Google Cybersecurity Professional et Cisco Ethical Hacker, avec un focus particulier sur l'analyse des menaces, les tests de pénétration et la réponse aux incidents</li>
+                            <li>Formation active sur Microsoft Purview pour maîtriser la protection des données, la prévention des pertes (DLP) et la gestion des risques internes</li>
+                            <li>Étude approfondie de Microsoft Defender XDR pour améliorer mes compétences en détection avancée et corrélation des alertes de sécurité</li>
+                            <li>Apprentissage des principes de l'architecture Zero Trust et de son application dans les environnements hybrides modernes</li>
+                            <li>Approfondissement des cadres de conformité comme ISO 27001 et PCI-DSS, essentiels pour les secteurs réglementés</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Poste 2 -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Analyste-Programmeur Senior</div>
+                            <div class="job-company">Desjardins</div>
+                            <div class="job-period">Juin 2020 - Janvier 2025 (4,5 ans)</div>
+                        </div>
+                        <ul class="job-description">
+                            <li><strong>Sécurisation de microservices</strong> Java Spring traitant des données financières sensibles avec application rigoureuse des principes <strong>OWASP</strong> et contrôles de conformité</li>
+                            <li>Conception et implémentation de <strong>stratégies de protection des données</strong> incluant chiffrement, tokenisation et contrôles d'accès granulaires (IAM)</li>
+                            <li>Mise en place de <strong>contrôles de sécurité réglementaires</strong> répondant aux exigences du secteur financier (ISO 27001, standards bancaires)</li>
+                            <li><strong>Audits de sécurité réguliers</strong> avec SonarQube et outils SAST/DAST, détection précoce des vulnérabilités avant production</li>
+                            <li><strong>Automatisation des tests de sécurité</strong> dans les pipelines CI/CD pour feedback instantané aux équipes de développement</li>
+                            <li>Collaboration avec architectes de sécurité sur la <strong>réponse et prévention des incidents</strong></li>
+                            <li><strong>Documentation complète</strong> dans Jira pour assurer traçabilité et faciliter les audits de conformité</li>
+                            <li>Coordination avec Product Owners pour équilibrer <strong>sécurité et expérience utilisateur</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Poste 3 -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Analyste Système TI</div>
+                            <div class="job-company">The Weather Network</div>
+                            <div class="job-period">Mars 2017 - Mai 2020 (3 ans)</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Assuré la surveillance de sécurité sur plusieurs plateformes pour identifier rapidement les anomalies et les activités suspectes</li>
+                            <li>Géré les incidents de sécurité pour les équipes internes et les clients externes, en documentant minutieusement chaque investigation</li>
+                            <li>Mis en place des contrôles de sécurité alignés avec les exigences réglementaires du secteur financier, incluant ISO 27001 et les standards bancaires</li>
+                            <li>Déployé des systèmes de monitoring avancés pour détecter précocement les tentatives d'intrusion et les comportements inhabituels</li>
+                            <li>Maintenu la sécurité des serveurs à travers le durcissement des systèmes et une gestion proactive des correctifs</li>
+                            <li>Fourni un support technique en sécurité aux bureaux internationaux de Montréal, Oakville et Madrid</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Poste 4 -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Analyste-Programmeur</div>
+                            <div class="job-company">i2v</div>
+                            <div class="job-period">Octobre 2016 - Janvier 2017</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Développé des plateformes e-commerce sécurisées sur Magento avec des fonctionnalités de sécurité adaptées aux besoins spécifiques des clients</li>
+                            <li>Intégré des systèmes de paiement sécurisés en respectant les normes de chiffrement et la conformité PCI-DSS</li>
+                            <li>Configuré et sécurisé des serveurs locaux avec des contrôles d'accès robustes et une segmentation réseau appropriée</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Poste 5 -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Développeur</div>
+                            <div class="job-company">Novo3bi</div>
+                            <div class="job-period">Novembre 2015 - Août 2016</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Développé des applications web sécurisées en utilisant PHP, JavaScript et le framework Java Spring avec Hibernate</li>
+                            <li>Intégré les principes de sécurité dès la phase de conception dans tous les projets agiles</li>
+                            <li>Mis en place des workflows agiles avec GitHub, incluant des vérifications de sécurité automatisées dans le processus de développement</li>
+                            <li>Géré l'administration système en appliquant le durcissement des serveurs et en assurant la gestion sécurisée des domaines</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
